@@ -8,6 +8,7 @@ module Rich
     scope :images,  -> { where("rich_rich_files.simplified_type = 'image'") }
     scope :files,   -> { where("rich_rich_files.simplified_type = 'file'") }
 
+    include Kaminari::ConfigurationMethods
     paginates_per Rich.options[:paginates_per]
 
     has_attached_file :rich_file,
